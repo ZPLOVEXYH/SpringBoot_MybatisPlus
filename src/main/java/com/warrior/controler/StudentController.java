@@ -49,7 +49,19 @@ public class StudentController {
 
     @RequestMapping(value = "/hello4")
     @ResponseBody
-    public Student hello4(@RequestParam long id) {
-        return iStudentService.getById(id);
+    public Integer hello4() {
+        return iStudentService.updateStudent();
+    }
+
+    @RequestMapping(value = "/hello5")
+    @ResponseBody
+    public Integer hello5(Long... ids) {
+        return iStudentService.deleteAllByIds(ids);
+    }
+
+    @RequestMapping(value = "/hello6", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean hello6(@RequestBody List<Student> stus) {
+        return iStudentService.insertBatch(stus);
     }
 }

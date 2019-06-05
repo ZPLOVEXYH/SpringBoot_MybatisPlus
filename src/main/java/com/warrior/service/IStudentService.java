@@ -19,5 +19,7 @@ public interface IStudentService extends IService<Student> {
 
 	Integer updateStudentById(Student student);
 
-	Student getById(Long id);
+	Integer updateStudent();
+
+	Integer deleteAllByIds(Long... ids);
 }
