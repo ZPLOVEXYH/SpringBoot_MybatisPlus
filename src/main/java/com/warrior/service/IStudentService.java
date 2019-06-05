@@ -14,5 +14,10 @@ import java.util.List;
  * @since 2018-05-05
  */
 public interface IStudentService extends IService<Student> {
+
 	List<Student> selectStudentByStuName(String student);
+
+	Integer updateStudentById(Student student);
+
+	Student getById(Long id);
 }

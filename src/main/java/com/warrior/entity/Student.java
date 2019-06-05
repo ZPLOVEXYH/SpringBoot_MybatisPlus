@@ -1,5 +1,6 @@
 package com.warrior.entity;
 
+import com.baomidou.mybatisplus.enums.FieldStrategy;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
@@ -22,10 +23,14 @@ public class Student extends Model<Student> {
 
 	@TableId(value="id", type= IdType.AUTO)
 	private Integer id;
-	@TableField("stu_name")
+
+	@TableField(value = "stu_name", validate = FieldStrategy.NOT_EMPTY)
 	private String stuName;
-	@TableField("stu_number")
+
+	@TableField(value = "stu_number", validate = FieldStrategy.NOT_EMPTY)
 	private String stuNumber;
+
+	@TableField(validate = FieldStrategy.NOT_EMPTY)
 	private Integer age;
 
 

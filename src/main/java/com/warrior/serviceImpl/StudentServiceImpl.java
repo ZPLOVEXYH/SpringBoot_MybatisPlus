@@ -26,4 +26,14 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     public List<Student> selectStudentByStuName(String Student) {
         return this.baseMapper.selectStudentByStuName(Student);
     }
+
+    @Override
+    public Integer updateStudentById(Student student) {
+        return this.baseMapper.updateById(student);
+    }
+
+    @Override
+    public Student getById(Long id) {
+        return this.baseMapper.getById(id);
+    }
 }

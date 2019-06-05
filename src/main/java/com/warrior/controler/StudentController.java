@@ -4,8 +4,7 @@ import com.warrior.entity.Student;
 import com.warrior.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ import java.util.List;
  * 前端控制器
  * </p>
  *
- * @author lqh
+ * @author zp
  * @since 2018-05-05
  */
 @Controller
@@ -40,5 +39,17 @@ public class StudentController {
     @ResponseBody
     public List<Student> hello2() {
         return iStudentService.selectStudentByStuName("linqihong");
+    }
+
+    @RequestMapping(value = "/hello3", method = RequestMethod.POST)
+    @ResponseBody
+    public Integer hello3(@RequestBody Student student) {
+        return iStudentService.updateStudentById(student);
+    }
+
+    @RequestMapping(value = "/hello4")
+    @ResponseBody
+    public Student hello4(@RequestParam long id) {
+        return iStudentService.getById(id);
     }
 }
